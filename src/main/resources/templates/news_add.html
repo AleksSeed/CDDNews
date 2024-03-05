@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление новости</title>
+</head>
+<body>
+   <div>
+    <h1>Добавить новость</h1>
+     <div>
+        <form action="/news/add" method="post">
+            <input type="text" name="heading" placeholder="Введите заголовок"><br>
+            <input type="text" name="shortDescription" placeholder="Введите краткое описание"><br><br>
+            <textarea type="text" name="fullDescription" placeholder="Введите полное описание"></textarea><br>
+            <select name="type" aria-label="Выберите тип новости">
+                <div th:each="element : ${newsTypes}">
+                    <option th:value="${element.getName()}" th:text="${element.getName()} + ' (' + ${element.getColor()} + ')'"></option>
+                </div>
+            </select><br>
+            <button type="submit">Добавить новость</button>
+        </form>
+     </div>
+   </div>
+</body>
+</html>

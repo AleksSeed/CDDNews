@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Редактирование типа новостей</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <div >
+            <h1>Редактировать тип новости</h1>
+            <form th:action="'/newstypes/' + ${newsTypes.getId()} + '/edit'" method="post">
+                <input type="text" th:value="${newsTypes.getName()}" name="name" placeholder="Введите название типа новости"><br>
+                <input type="text" th:value="${newsTypes.getColor()}" name="color" placeholder="Введите цвет новости"><br><br>
+                <button type="submit">Обновить тип новости</button>
+            </form>
+    </div>
+</body>
+</html>

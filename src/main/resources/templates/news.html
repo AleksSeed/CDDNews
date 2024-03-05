@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Новости</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+   <div class="container mt-5">
+    <h1>Новости</h1>
+       <div th:each="element : ${newsList}">
+        <h2 th:text="${element.getName()}"></h2>
+        <p th:text="${element.getShortDescript()}"></p>
+        <p th:text="${element.getFullDescript()}"></p>
+        <h3>Тип новости</h3>
+           <p th:text="${element.getType().getName()} + ' (' + ${element.getType().getColor()} + ')'"></p>
+
+           <form th:action="'/news/' + ${element.getId()} + '/edit'" method="post">
+               <button type="submit">Редактировать</button>
+           </form>
+           <form th:action="'/news/' + ${element.getId()} + '/remove'" method="post">
+               <button type="submit">Удалить</button>
+           </form>
+      </div>
+   </div>
+</body>
+</html>

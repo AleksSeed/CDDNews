@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Новости</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <div>
+        <h1>Тип Новостей - <p th:text="${newsType.getName()} + ' (' + ${newsType.getColor()} + ')'"></p></h1>
+        <h2>Новости</h2><br>
+        <div th:each="element : ${newsList}">
+            <h3 th:text="${element.getName()}"></h3>
+            <p th:text="${element.getShortDescript()}"></p>
+            <p th:text="${element.getFullDescript()}">Подробнее</p>
+        </div>
+    </div>
+</body>
+</html>
